@@ -1,3 +1,3 @@
-module example.com/m/v2
+module github.com/DavidGenZ/cli-app-example
 
 go 1.19

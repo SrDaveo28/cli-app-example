@@ -1,14 +1,15 @@
 package main
 
 import (
-	"fmt"
 	"log"
+	"strconv"
 
-	"example.com/m/v2/commands"
+	"github.com/DavidGenZ/cli-app-example/commands"
 )
 
 func main() {
 
+	var expenses []float32
 	for {
 		input, err := commands.GetInput()
 
@@ -19,6 +20,13 @@ func main() {
 		if input == "cls" {
 			break
 		}
+
+		espense, err := strconv.ParseFloat(input, 32)
+		if err != nil {
+			continue
+		}
+
+		expenses = append(expenses, float32(espense))
 	}
-	fmt.Println("Closing ...")
+	commands.ShowInConsole(expenses)
 }
